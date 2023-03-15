@@ -10,7 +10,11 @@
     "./coder/*": "./dist/coder/*.js",
     "./queue": "./dist/queue/queue.js",
     "./interfaces/*": "./dist/interfaces/*.js",
-    "./errors/*": "./dist/errors/*.js"
+    "./errors/*": "./dist/errors/*.js",
+    "./block_producers/*": "./dist/block_producers/*.js",
+    "./logger": "./dist/logger/logger.js",
+    "./block_getters/*": "./dist/block_getters/*.js",
+    "./block_subscription/*": "./dist/block_subscription/*.js"
   },
   "scripts": {
     "tests": "jest --coverage",
@@ -33,7 +37,10 @@
     "web3-eth": "^1.8.0",
     "web3-eth-abi": "^1.8.0",
     "web3-eth-contract": "^1.8.1",
-    "web3-utils": "^1.8.2"
+    "web3-utils": "^1.8.2",
+    "winston": "^3.8.2",
+    "winston-transport-sentry-node": "^2.7.0",
+    "mongoose": "^6.5.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.1",

@@ -36,7 +36,7 @@ export class Coder implements ICoder {
                  this.loadPromise = load(
                     // https://nodejs.org/api/esm.html#no-requireresolve - Alternative for require.resolve
                     // @ts-ignore
-                    createRequire(import.meta.url).resolve(`open-api-common/schemas/${this.fileName}.proto`)
+                    createRequire(import.meta.url).resolve(`blockflow-core/schemas/${this.fileName}.proto`)
                 ).then((root: Root) => {
                     return root.lookupType(`${this.packageName}.${this.messageType}`);
                 });

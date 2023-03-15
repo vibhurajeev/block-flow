@@ -44,7 +44,7 @@ export class BlockSubscription extends AbstractBlockSubscription {
      */
     private setWorkers(): void {
         const workers: Worker[] = [];
-        const workerPath: string = createRequire(import.meta.url).resolve(`open-api-common/block_getters/${this.blockGetterType}_worker`);
+        const workerPath: string = createRequire(import.meta.url).resolve(`blockflow-core/block_getters/${this.blockGetterType}_worker`);
 
         if (!this.rpcWsEndpoints.length) {
             //TODO - throw error if no rpc

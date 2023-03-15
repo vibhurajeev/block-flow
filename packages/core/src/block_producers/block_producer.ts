@@ -9,7 +9,6 @@ import { IProducerConfig } from "../interfaces/producer_config.js";
 import { BlockGetter } from "../block_getters/block_getter.js";
 import { Metadata, DeliveryReport } from "node-rdkafka";
 import { KafkaError } from "../errors/kafka_error.js";
-import { IObserver } from "../interfaces/observer.js";
 import { Coder } from "../coder/protobuf_coder.js";
 import { ICoder } from "../interfaces/coder.js";
 import { IBlock } from "../interfaces/block.js";
@@ -187,7 +186,7 @@ export class BlockProducer extends AsynchronousProducer {
                 Logger.error(error as string | object);
             }
         });
-
+        
         await this.blockSubscription.subscribe(
             {
                 next: async (block: IBlock) => {

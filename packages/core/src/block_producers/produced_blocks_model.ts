@@ -1,5 +1,4 @@
 import { Schema, Model } from "mongoose";
-
 export interface IProducedBlock {
     number: number
     hash: string

@@ -59,7 +59,6 @@ export class BlockPoller implements IBlockSubscription<IBlock, Error> {
 
             while (this.pollingId === pollingId) {
                 const latestBlockNumber = await this.blockGetter.getLatestBlockNumber();
-                
                 Logger.debug(`Starting polling from block number ${lastBlockNumber} and latest block number is ${latestBlockNumber}`);
                 if (latestBlockNumber <= lastBlockNumber) {
                     await new Promise(r => setTimeout(r, this.blockPollingTimeout));
@@ -67,7 +66,6 @@ export class BlockPoller implements IBlockSubscription<IBlock, Error> {
 
                 for (let blockNum: number = (lastBlockNumber + 1); blockNum <= latestBlockNumber && this.pollingId === pollingId; blockNum++) {
                     const block = await this.blockGetter.getBlockWithTransactionReceipts(blockNum);
-
                     //Added below logic as if a new subscription is created before previous 
                     //promise was resolved, then the block is not emitted.
                     if (this.pollingId !== pollingId) {
